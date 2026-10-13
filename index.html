@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FrameForge AI — Creative Studio</title>
+<style>
+:root{--bg:#0c0d12;--panel:#141620;--panel2:#1b1e2b;--line:#2b2e3e;--text:#f4f5fb;--muted:#a0a5ba;--accent:#a99bff;--accent2:#7de0c3;--danger:#ff8d9b}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 85% 0%,#272044 0%,var(--bg) 40%);color:var(--text);font:15px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+button,input,textarea,select{font:inherit}button{cursor:pointer;border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:10px 13px;border-radius:12px}button:hover{border-color:#8276d9}button.primary{background:var(--accent);border-color:var(--accent);color:#171329;font-weight:750}button.ghost{background:transparent}.app{display:grid;grid-template-columns:230px minmax(0,1fr);min-height:100vh}.side{border-right:1px solid var(--line);padding:24px 16px;background:#0c0d12cc}.brand{display:flex;gap:10px;align-items:center;font-weight:850;font-size:18px;margin:0 8px 30px}.logo{width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;color:#111;font-weight:900}.nav{display:grid;gap:7px}.nav button{text-align:left;background:transparent;border-color:transparent;color:var(--muted)}.nav button.active,.nav button:hover{background:var(--panel2);color:var(--text);border-color:var(--line)}.side-note{margin:28px 5px;padding:14px;border:1px solid var(--line);border-radius:15px;color:var(--muted);font-size:12px}.main{min-width:0;padding:25px clamp(16px,3vw,42px) 50px;max-width:1500px;width:100%;margin:auto}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:30px}.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent2);font-weight:800}.top h1{font-size:clamp(25px,3vw,37px);letter-spacing:-.04em;margin:5px 0}.sub{color:var(--muted);margin:0}.pill{border:1px solid var(--line);border-radius:99px;padding:8px 12px;color:var(--muted);white-space:nowrap;font-size:13px}.grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);gap:18px;align-items:start}.panel{background:linear-gradient(160deg,#181a27,#11131b);border:1px solid var(--line);border-radius:20px;padding:20px;min-width:0}.panel h2{font-size:17px;margin:0 0 5px}.muted{color:var(--muted)}.small{font-size:12px}.upload{margin-top:18px;min-height:180px;border:1px dashed #56516f;border-radius:16px;background:#11121bcc;display:flex;align-items:center;justify-content:center;text-align:center;padding:18px;position:relative;overflow:hidden}.upload input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}.upload-content{pointer-events:none}.upload .big{font-size:32px}.preview{max-width:100%;max-height:260px;object-fit:contain;border-radius:10px}.field{display:grid;gap:7px;margin-top:17px}.field label{font-size:13px;color:#d7d9e7;font-weight:650}textarea,input[type=text],select{width:100%;background:#0c0d13;border:1px solid var(--line);border-radius:12px;padding:12px;color:var(--text);outline:none}textarea:focus,input:focus,select:focus{border-color:var(--accent)}textarea{min-height:100px;resize:vertical}.row{display:flex;gap:10px;flex-wrap:wrap}.row>*{flex:1}.setting{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:16px}.setting select{max-width:180px}.actions{display:flex;gap:10px;margin-top:18px}.actions button{flex:1}.notice{border:1px solid #345b52;background:#10231f;border-radius:13px;padding:12px;color:#b8f3e3;font-size:13px;margin-top:14px}.job{display:flex;align-items:flex-start;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}.job:last-child{border:0}.job-icon{width:40px;height:40px;border-radius:12px;background:var(--panel2);display:grid;place-items:center;flex-shrink:0}.job-copy{flex:1;min-width:0}.job-title{font-weight:700}.job-desc{font-size:12px;color:var(--muted);margin-top:3px;overflow-wrap:anywhere}.status{font-size:11px;padding:4px 8px;border-radius:99px;background:#243b35;color:var(--accent2);white-space:nowrap}.status.failed{background:#3b222a;color:var(--danger)}.status.running{background:#30284d;color:#d4cbff}.empty{padding:30px 8px;text-align:center;color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}.stat{border:1px solid var(--line);border-radius:14px;padding:12px}.stat b{display:block;font-size:22px}.stat span{font-size:11px;color:var(--muted)}.footer{margin-top:18px;color:#777d94;font-size:11px}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#f4f5fb;color:#151520;border-radius:12px;padding:12px 18px;box-shadow:0 12px 40px #0008;display:none;z-index:5;max-width:90vw}.hidden{display:none!important}
+@media(max-width:900px){.app{grid-template-columns:1fr}.side{border-right:0;border-bottom:1px solid var(--line);padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{margin:0;font-size:16px}.nav{display:flex;gap:4px;overflow:auto}.nav button{white-space:nowrap;padding:8px}.side-note{display:none}.main{padding-top:20px}.grid{grid-template-columns:1fr}.top{margin-bottom:20px}}
+@media(max-width:500px){.nav button{font-size:12px;padding:7px}.pill{font-size:11px}.top{align-items:flex-start}.top .pill{display:none}.panel{padding:15px}.stats{gap:6px}.stat{padding:9px}.stat b{font-size:18px}.actions{flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="side">
+  <div class="brand"><div class="logo">F</div> FrameForge <span style="color:var(--accent);font-size:11px">BETA</span></div>
+  <nav class="nav" aria-label="Main navigation">
+    <button class="active" data-view="studio">✦ Studio</button>
+    <button data-view="projects">▦ Projects</button>
+    <button data-view="archive">▤ Archive</button>
+  </nav>
+  <div class="side-note">BUILT FOR TRUST<br><br>Failed demo jobs never spend credits. Your files stay in this browser session only.</div>
+</aside>
+<main class="main">
+  <header class="top"><div><div class="eyebrow">Your creative workspace</div><h1 id="pageTitle">Make something remarkable.</h1><p class="sub" id="pageSub">A calmer, clearer workflow for image and video ideas.</p></div><div class="pill">◉ Demo mode · No paid generation</div></header>
+  <section id="studioView">
+    <div class="grid">
+      <section class="panel">
+        <h2>Start a creation</h2><p class="muted small">Use a reference image or start from a text prompt.</p>
+        <div class="upload" id="uploadArea"><div class="upload-content" id="uploadContent"><div class="big">＋</div><b>Drop a reference image here</b><div class="muted small">or tap to choose a file · PNG, JPG, WEBP</div></div><input id="imageInput" type="file" accept="image/*" aria-label="Choose reference image"></div>
+        <div class="field"><label for="prompt">Describe what you want to create</label><textarea id="prompt" placeholder="Example: Turn this product photo into a cinematic studio shot. Preserve the exact logo, packaging, label and colors."></textarea></div>
+        <div class="row">
+          <div class="field"><label for="kind">Creation type</label><select id="kind"><option>Image concept</option><option>Video storyboard</option><option>Product scene</option><option>Character concept</option></select></div>
+          <div class="field"><label for="ratio">Aspect ratio</label><select id="ratio"><option>16:9 Landscape</option><option>9:16 Portrait</option><option>1:1 Square</option><option>4:3 Classic</option></select></div>
+        </div>
+        <div class="setting"><div><b>Protect reference details</b><div class="muted small">Keep logos and labels unchanged in your brief</div></div><input id="preserve" type="checkbox" checked aria-label="Preserve reference details" style="width:20px;height:20px;accent-color:var(--accent)"></div>
+        <div class="actions"><button class="primary" id="generate">✦ Create demo job</button><button id="clear" class="ghost">Clear</button></div>
+        <div class="notice">✓ Credit-safe by design: this prototype simulates jobs locally. It does not call an AI service or charge anything.</div>
+      </section>
+      <section>
+        <div class="panel"><h2>Job health</h2><p class="muted small">Transparent status, every time.</p>
+          <div class="stats"><div class="stat"><b id="total">0</b><span>Total jobs</span></div><div class="stat"><b id="success">0</b><span>Completed</span></div><div class="stat"><b id="credits">0</b><span>Credits used</span></div></div>
+          <div class="notice">🛡 Failed jobs cost <b>0 credits</b>. Retry is always available in this demo.</div>
+        </div>
+        <div class="panel" style="margin-top:18px"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><div><h2>Recent jobs</h2><p class="muted small">Your latest creations and retries.</p></div><button id="viewAll" class="ghost">View all</button></div><div id="recentJobs" class="empty">No jobs yet. Your first creation starts here.</div></div>
+      </section>
+    </div>
+  </section>
+  <section id="listView" class="hidden"><div class="panel"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><div><h2 id="listTitle">Projects</h2><p class="muted small" id="listSub">All jobs stay easy to find.</p></div><button id="backStudio">← Back to studio</button></div><div id="allJobs" class="empty">Nothing here yet.</div></div></section>
+  <p class="footer">FrameForge AI is an independent prototype. Image upload previews are local; generated results, cloud sync, accounts, real AI models and billing are not connected.</p>
+</main>
+</div>
+<div id="toast" class="toast" role="status"></div>
+<script>
+const $=id=>document.getElementById(id);
+let jobs=[], archived=new Set(), imageData=null, imageName="";
+function toast(msg){const t=$("toast");t.textContent=msg;t.style.display="block";clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.style.display="none",2600)}
+function safe(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function counts(){ $("total").textContent=jobs.length;$("success").textContent=jobs.filter(j=>j.status==="Completed").length;$("credits").textContent=0 }
+function jobMarkup(j){return `<div class="job"><div class="job-icon">${j.kind==="Video storyboard"?"▶":j.kind==="Product scene"?"▧":"✦"}</div><div class="job-copy"><div class="job-title">${safe(j.kind)}</div><div class="job-desc">${safe(j.prompt||"Untitled creation")}${j.imageName?" · Reference: "+safe(j.imageName):""}</div><div class="job-desc">${safe(j.ratio)} · ${safe(j.time)}</div></div><span class="status ${j.status==="Failed"?"failed":j.status==="Running"?"running":""}">${j.status}</span><div class="job-actions"><button onclick="retryJob('${j.id}')" title="Retry">↻</button><button onclick="archiveJob('${j.id}')" title="Archive">${archived.has(j.id)?"↩":"▤"}</button></div></div>`}
+function render(){counts();const visible=jobs.filter(j=>!archived.has(j.id));$("recentJobs").innerHTML=visible.length?visible.slice(0,4).map(jobMarkup).join(""):'<div class="empty">No jobs yet. Your first creation starts here.</div>';const view=document.querySelector(".nav button.active")?.dataset.view||"studio";let list=view==="archive"?jobs.filter(j=>archived.has(j.id)):jobs.filter(j=>!archived.has(j.id));$("allJobs").innerHTML=list.length?list.slice().reverse().map(jobMarkup).join(""):'<div class="empty">Nothing here yet.</div>'}
+function createJob(){const prompt=$("prompt").value.trim();if(!prompt){toast("Add a short prompt before creating a job.");$("prompt").focus();return}const j={id:"j"+Date.now(),prompt,kind:$("kind").value,ratio:$("ratio").value,status:"Running",time:new Date().toLocaleTimeString([], {hour:"2-digit",minute:"2-digit"}),imageName:imageName};jobs.unshift(j);render();toast("Job queued. Demo mode is simulating the workflow.");setTimeout(()=>{const found=jobs.find(x=>x.id===j.id);if(!found)return;found.status=prompt.toLowerCase().includes("[simulate failure]")?"Failed":"Completed";render();toast(found.status==="Failed"?"Job failed. No credits used — retry whenever you're ready.":"Demo job completed. No credits used.");},1200)}
+function retryJob(id){const j=jobs.find(x=>x.id===id);if(!j)return;j.status="Running";j.time=new Date().toLocaleTimeString([], {hour:"2-digit",minute:"2-digit"});render();toast("Retry queued. No credits used.");setTimeout(()=>{const x=jobs.find(y=>y.id===id);if(x){x.status="Completed";render();toast("Retry completed in demo mode.");}},900)}
+function archiveJob(id){if(archived.has(id))archived.delete(id);else archived.add(id);render();toast(archived.has(id)?"Moved to archive.":"Restored to projects.");}
+function showView(view){document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.view===view));const studio=view==="studio";$("studioView").classList.toggle("hidden",!studio);$("listView").classList.toggle("hidden",studio);$("pageTitle").textContent=studio?"Make something remarkable.":view==="archive"?"Your archive.":"Your projects."; $("pageSub").textContent=studio?"A calmer, clearer workflow for image and video ideas.":view==="archive"?"Archived work stays retrievable.":"Every job, status and retry in one place.";if(!studio){$("listTitle").textContent=view==="archive"?"Archive":"Projects";$("listSub").textContent=view==="archive"?"Restore anything whenever you need it.":"Track your creative work without losing context."}render()}
+document.querySelectorAll(".nav button").forEach(b=>b.addEventListener("click",()=>showView(b.dataset.view)));
+$("generate").addEventListener("click",createJob);$("clear").addEventListener("click",()=>{$("prompt").value="";$("kind").selectedIndex=0;$("ratio").selectedIndex=0;imageData=null;imageName="";$("imageInput").value="";$("uploadContent").innerHTML='<div class="big">＋</div><b>Drop a reference image here</b><div class="muted small">or tap to choose a file · PNG, JPG, WEBP</div>';toast("Composer cleared.")});
+$("imageInput").addEventListener("change",e=>{const f=e.target.files?.[0];if(!f)return;if(!f.type.startsWith("image/")){toast("Please choose an image file.");return}imageName=f.name;const reader=new FileReader();reader.onload=()=>{imageData=reader.result;$("uploadContent").innerHTML=`<img class="preview" alt="Selected reference image" src="${imageData}"><div class="small muted">${safe(imageName)}</div>`;toast("Reference image loaded locally.")};reader.readAsDataURL(f)});
+$("viewAll").addEventListener("click",()=>showView("projects"));$("backStudio").addEventListener("click",()=>showView("studio"));
+$("uploadArea").addEventListener("dragover",e=>{e.preventDefault();$("uploadArea").style.borderColor="var(--accent2)"});$("uploadArea").addEventListener("dragleave",()=>{$("uploadArea").style.borderColor=""});$("uploadArea").addEventListener("drop",e=>{e.preventDefault();$("uploadArea").style.borderColor="";const f=e.dataTransfer.files[0];if(!f)return;const dt=new DataTransfer();dt.items.add(f);$("imageInput").files=dt.files;$("imageInput").dispatchEvent(new Event("change"))});
+render();
+</script>
+</body>
+</html>
